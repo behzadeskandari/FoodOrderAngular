@@ -1,5 +1,5 @@
 <div class="d-inline-flex">
-  <div class="container">
+  <div class="container" *ngIf="food">
     <img src="{{food.imageUrl}}" [alt]="food.name">
   </div>
   <div class="details">
@@ -7,7 +7,7 @@
       <span class="name">
         {{food.name}}
       </span>
-      <span class="favorite {{food.favorite? '':'not'}}">❤</span>
+      <span class="favorite {{food.favorite? '':'not'}}">🤍</span>
     </div>
     <div class="star">
       <star-rating [value]="food.stars" [totalstars]="5" checkedcolor="red" uncheckedcolor="black" size="24px" [readonly]="false" ></star-rating>
@@ -19,7 +19,7 @@
     </div>
     <div class="tag">
       <app-tags [foodPagetags]="food.tags"   justifyContent="start">
-  
+
       </app-tags>
     </div>
     <div class="cook-time">
@@ -32,6 +32,6 @@
           {{food.price|currency}}
       </span>
     </div>
-    <button>Add To Cart</button>
+    <button (click)="addToCart()">Add To Cart</button>
   </div>
 </div>
